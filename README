@@ -15,6 +15,7 @@ Feature outline:
 
 Tech to try
  1. JQuery
+  * http://docs.jquery.com/Specifying_the_Data_Type_for_AJAX_Requests
  1. Huchentoot for serving
  1. Elephant for persistence
  1. more adw-charting
