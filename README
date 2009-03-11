@@ -1,0 +1,22 @@
+This is a playground for me to try different tech.
+
+Basic approach: tons of javascript speaking JSON to a server.  Server only speaks JSON, and HTML pages are few. (screw links)
+
+Feature outline:
+ 1. main screen
+  1. current system
+  1. what planets you can travel to
+  1. what systems you can travel to
+  1. ship / cargo summary
+ 1. planet screen
+  1. market (buy/sell goods)
+  1. shop (buy/sell ship parts)
+  1. dealership (buy/sell ships)
+
+Tech to try
+ 1. JQuery
+ 1. Huchentoot for serving
+ 1. Elephant for persistence
+ 1. more adw-charting
+ 1. more vecto for drawing maps
+ 1. various AI libraries
