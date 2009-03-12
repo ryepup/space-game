@@ -1,23 +1,53 @@
+-*- mode: org; -*-
+#+STARTUP: logdone
+#+EMAIL: ryan@mokeys.org
 This is a playground for me to try different tech.
 
 Basic approach: tons of javascript speaking JSON to a server.  Server only speaks JSON, and HTML pages are few. (screw links)
 
-Feature outline:
- 1. main screen
-  1. current system
-  1. what planets you can travel to
-  1. what systems you can travel to
-  1. ship / cargo summary
- 1. planet screen
-  1. market (buy/sell goods)
-  1. shop (buy/sell ship parts)
-  1. dealership (buy/sell ships)
 
-Tech to try
- 1. JQuery
-  * http://docs.jquery.com/Specifying_the_Data_Type_for_AJAX_Requests
- 1. Huchentoot for serving
- 1. Elephant for persistence
- 1. more adw-charting
- 1. more vecto for drawing maps
- 1. various AI libraries
+* UI
+** tabs
+*** Dashboard
+**** cargo
+**** money over time
+*** Systems
+**** travel to other systems
+***** travel time
+**** for nearby systems
+***** news
+***** markets
+***** travel time
+*** Planets (n)
+**** buy/sell cargo
+**** news
+*** Ships (n)
+**** buy/sell ships
+**** buy/sell equipment for a ship
+** status bar on bottom
+*** money
+*** time (turn #)
+*** current location
+* Backend
+** players specify orders, then get resolved
+*** option to allow game to continue without all orders?
+*** orders may take more than one turn
+* design choices
+** long-lived browser window
+** server speaks mostly JSON
+** playable by a bot
+** slow evolution of game and world
+* tech to try out
+** JQuery
+** canvas
+** Hunchentoot
+** Elephant
+** adw-charting
+** vecto
+** dynamic animated gifs
+** cl-unification
+* work log
+** DONE setup github account, initial readme, got local setup ready to start lisping
+   CLOSED: [2009-03-12 Thu 10:51]
+
+
