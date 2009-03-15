@@ -33,6 +33,30 @@ Basic approach: tons of javascript speaking JSON to a server.  Server only speak
 *** option to allow game to continue without all orders?
 *** orders may take more than one turn
 * design choices
+** planet economies/markets
+Each planet produces and consumes goods at a certain rate, and has a supply.
+
+Each turn affects the supplies at each planet.
+
+market price is determined by 3 variables:
+ * consumption rate
+ * production rate
+ * supply
+
+one flawed formula:
+(consumption rate - production rate) * 
+(supply / (production rate - consumption rate))
+
+| consumption | production | supply | should be     | rate |
+|           5 |          5 |     10 | around zero   |      |
+|          10 |          5 |   1000 | negative      |      |
+|          10 |          5 |     10 | high          |      |
+|           5 |         10 |     10 | positive      |      |
+|           5 |         10 |   1000 | very negative |      |
+
+Every turn there is a random chance of the rates changing, 
+too keep a dynamic environment.
+
 ** long-lived browser window
 ** server speaks mostly JSON
 ** playable by a bot
@@ -47,7 +71,13 @@ Basic approach: tons of javascript speaking JSON to a server.  Server only speak
 ** dynamic animated gifs
 ** cl-unification
 * work log
+** plan out how the economies should work
+   CLOCK: [2009-03-14 Sat 20:33]--[2009-03-14 Sat 20:46] =>  0:13
+** get elephant installed for persistence
+   CLOCK: [2009-03-14 Sat 16:00]--[2009-03-14 Sat 18:45] =>  2:45
+** create basic models (player, planet, system, game, trade good, trade good price)
+   CLOCK: [2009-03-14 Sat 19:15]--[2009-03-14 Sat 20:33] =>  1:18
 ** DONE setup github account, initial readme, got local setup ready to start lisping
    CLOSED: [2009-03-12 Thu 10:51]
 
-
+   
