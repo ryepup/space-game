@@ -43,9 +43,11 @@ market price is determined by 3 variables:
  * production rate
  * supply
 
-one flawed formula:
-(consumption rate - production rate) * 
-(supply / (production rate - consumption rate))
+First, we calculate the usage rate as production - consumption
+From there, we have two formulas:
+ * if the usage is 0, price = 10 * (production / supply)
+ * else price = 10 * (usage / supply)
+This is probably still flawed.
 
 | consumption | production | supply | should be     | rate |
 |           5 |          5 |     10 | around zero   |      |
@@ -71,8 +73,11 @@ too keep a dynamic environment.
 ** dynamic animated gifs
 ** cl-unification
 * work log
-** plan out how the economies should work
+** plan out how the economies should work, get some basic trading functions done.
+   :CLOCK:
+   CLOCK: [2009-03-15 Sun 00:26]--[2009-03-15 Sun 01:23] =>  0:57
    CLOCK: [2009-03-14 Sat 20:33]--[2009-03-14 Sat 20:46] =>  0:13
+   :END:
 ** get elephant installed for persistence
    CLOCK: [2009-03-14 Sat 16:00]--[2009-03-14 Sat 18:45] =>  2:45
 ** create basic models (player, planet, system, game, trade good, trade good price)
