@@ -73,11 +73,11 @@ too keep a dynamic environment.
 ** dynamic animated gifs
 ** cl-unification
 * work log
+** get hunchentoot running
+   CLOCK: [2009-03-20 Fri 20:10]--[2009-03-20 Fri 20:24] =>  0:14
 ** plan out how the economies should work, get some basic trading functions done.
-   :CLOCK:
    CLOCK: [2009-03-15 Sun 00:26]--[2009-03-15 Sun 01:23] =>  0:57
    CLOCK: [2009-03-14 Sat 20:33]--[2009-03-14 Sat 20:46] =>  0:13
-   :END:
 ** get elephant installed for persistence
    CLOCK: [2009-03-14 Sat 16:00]--[2009-03-14 Sat 18:45] =>  2:45
 ** create basic models (player, planet, system, game, trade good, trade good price)

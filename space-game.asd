@@ -15,4 +15,5 @@
 		:src
 		:components ((:file "packages")
 			     (:file "model" :depends-on ("packages" "start"))
-			     (:file "start" :depends-on ("packages"))))))
+			     (:file "start" :depends-on ("packages"))
+			     (:file "entry-points" :depends-on ("packages"))))))
