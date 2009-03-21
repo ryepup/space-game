@@ -35,11 +35,15 @@
    (cargo :accessor cargo
 	  :initform nil)))
 
+(defmethod cargo-used ((obj ship))
+  (or (iter (for (q g p) in (cargo obj))
+	    (summing q))
+      0))
+
 (defmethod print-object ((obj ship) stream)
   (print-unreadable-object (obj stream :type t :identity t)
     (format stream "cargo ~a / ~a"
-	    (iter (for (q g p) in (cargo obj))
-		  (summing q))
+	    (cargo-used obj)
 	    (capacity obj))))
 
 (defclass small-freighter (ship)

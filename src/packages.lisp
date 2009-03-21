@@ -1,3 +1,3 @@
 (defpackage :space-game
   (:documentation "space game")
-  (:use #:cl #:iterate))
+  (:use #:cl #:iterate #:cl-who))

@@ -73,6 +73,8 @@ too keep a dynamic environment.
 ** dynamic animated gifs
 ** cl-unification
 * work log
+** get jquery installed, basic ajaxy crap started
+   CLOCK: [2009-03-21 Sat 14:22]
 ** get hunchentoot running
    CLOCK: [2009-03-20 Fri 20:10]--[2009-03-20 Fri 20:24] =>  0:14
 ** plan out how the economies should work, get some basic trading functions done.
