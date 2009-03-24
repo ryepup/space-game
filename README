@@ -24,14 +24,10 @@ Basic approach: tons of javascript speaking JSON to a server.  Server only speak
 *** Ships (n)
 **** buy/sell ships
 **** buy/sell equipment for a ship
+*** pending orders
 ** status bar on bottom
 *** money
 *** time (turn #)
-*** current location
-* Backend
-** players specify orders, then get resolved
-*** option to allow game to continue without all orders?
-*** orders may take more than one turn
 * design choices
 ** planet economies/markets
 Each planet produces and consumes goods at a certain rate, and has a supply.
@@ -62,6 +58,23 @@ too keep a dynamic environment.
 ** long-lived browser window
 ** server speaks mostly JSON
 ** playable by a bot
+** order resolution
+Orders are issued by players, then processed by the server.  
+There are 2 types of orders:
+ - trade orders
+ - movement orders
+
+The orders are gathered from all players, sorted by type
+(trade or movement), then executed randomly.  It is possible
+for an order to fail, say if two players tried to buy the same good
+and there wasn't enough for both.  In this case, the first randomly
+selected order is followed, and the rest ignored.
+
+After trade orders are completed, movement orders are executed.
+
+If any of a player's trade orders fail, then they can 
+perform other actions.
+ 
 ** slow evolution of game and world
 * tech to try out
 ** JQuery
@@ -72,9 +85,15 @@ too keep a dynamic environment.
 ** vecto
 ** dynamic animated gifs
 ** cl-unification
-* work log
+* work log / todo
+** find ways to represent orders in json
+** break up htmlfun into a separate file
+** figure out jquery goodness to add orders to the pending orders tab
+** update README, get basic orders
+   CLOCK: [2009-03-23 Mon 19:40]--[2009-03-23 Mon 22:04] =>  1:24
+   CLOCK: [2009-03-23 Mon 18:31]--[2009-03-23 Mon 18:39] =>  0:08
 ** get jquery installed, basic ajaxy crap started
-   CLOCK: [2009-03-21 Sat 14:22]
+   CLOCK: [2009-03-21 Sat 14:22]--[2009-03-21 Sat 17:30] =>  3:08
 ** get hunchentoot running
    CLOCK: [2009-03-20 Fri 20:10]--[2009-03-20 Fri 20:24] =>  0:14
 ** plan out how the economies should work, get some basic trading functions done.

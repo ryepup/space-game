@@ -39,18 +39,29 @@
 	(:span :class "money"
 	       "Turn:" (str (turn *game*)))))
 
-(defhtmlfun systems-tab ()
+(defhtmlfun system-info (system)
   (:div (fmt "info about ~a"
-	     (name (system *player*))))
+	     (name system))))
+
+(defhtmlfun systems-tab ()
+  (system-info (system *player*))
   (:h2 "Adjacent Systems")
   (:div :id "adjacent-systems"
-	(iterate (for s in (systems *player*))
- 
+	(iterate (for lane in (lanes (system *player*)))
+		 (for s = (system lane))
+		 (for idx from 0)
 		 (htm
-		  (:h3 (:a :href "#" (str (name s))))
-		  (:div (:p (fmt "info about ~a" (name s))))
-		  )))
-  )
+		  (:h3 (:a :href "#"
+			   (fmt "~a - ~a turns"
+				(name s)
+				(travel-time lane))))
+		  (:div
+		   (system-info s)
+		   (:input :type "hidden"
+			   :value (str idx))
+		   (:button :class "travel"
+			    "Travel"
+			    ))))))
 
 (defhtmlfun planets-tab ()
   (:table :id "trade-goods" :class "tablesorter"
@@ -91,6 +102,15 @@
 	       (:td (str (capacity s)))
 	       (:td (str (cargo-used s)))))))))
 
+(defhtmlfun orders-tab ()  
+  (:h2 "Trade Orders")
+  (:ol :id "trade-orders")
+  (:button "Trade!")
+  (:h2 "Movement Orders")
+  (:ol :id "movement-orders")
+  (:button "Move!")
+  )
+
 (defun home-page (name)
   (declare (ignore name))
   (with-html-output-to-string (*standard-output* nil
@@ -121,4 +141,4 @@
 	    (:div :id "ships"
 		  (ships-tab))
 	    (:div :id "orders"
-		  "shows list of pending orders, with the 'turn' button."))))))
+		  (orders-tab)))))))

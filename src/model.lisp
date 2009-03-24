@@ -58,7 +58,11 @@
   (print-unreadable-object (tg stream :type t :identity t)
     (format stream "~a" (name tg))))
 
-(defvar *goods* (make-objects 'trade-good "Trade Good" 10))
+(defvar *goods* (mapcar #'(lambda (n) (make-instance 'trade-good :name n))
+			'("Precious Metals" "Water" "Grain"
+			  "Light Metals" "Heavy Metals"
+			  "Gems" "Meats" "Vegetables"
+			  "Spices")))
 
 (defclass trade-good-usage ()
   ((good :accessor good
@@ -84,7 +88,7 @@
 
 (defmethod print-object ((tg trade-good-usage) stream)
   (print-unreadable-object (tg stream :type t :identity t)
-    (format stream "~a (~a,+~a -~a) at ~a" (name (good tg))
+    (format stream "~a (~a, +~a -~a) at ~a" (name (good tg))
 	    (supply tg)
 	    (production tg)
 	    (consumption tg)
@@ -105,21 +109,33 @@
 			 (collect (make-instance 'trade-good-usage
 						 :good good))))))))
 
+(defclass system-lane ()
+  ((travel-time :accessor travel-time
+		:initarg :travel-time
+		:initform (random 3))
+   (system :accessor system
+	   :initarg :system
+	   :initform (first (make-objects 'system "System" 1)))))
+
 (defclass system (named)
   ((planets :accessor planets
 	    :initform nil)
-   (systems :accessor systems
+   (lanes :accessor lanes
 	    :initform nil)))
 
-(defmethod systems :around ((s system))
+(defmethod lanes :around ((s system))
   (let ((p (call-next-method)))
     (if p p
-	(setf (systems s) (make-objects 'system "System")))))
+	(setf (lanes s) (make-objects 'system-lane nil)))))
 
 (defmethod planets :around ((s system))
   (let ((p (call-next-method)))
     (if p p
 	(setf (planets s) (make-objects 'planet "Planet")))))
+
+(defmethod systems ((s system))
+  (iterate (for l in (lanes s))
+	   (collect (system l))))
 
 (defclass player ()
   ((money :accessor money
