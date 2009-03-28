@@ -5,7 +5,6 @@ This is a playground for me to try different tech.
 
 Basic approach: tons of javascript speaking JSON to a server.  Server only speaks JSON, and HTML pages are few. (screw links)
 
-
 * UI
 ** tabs
 *** Dashboard
@@ -25,7 +24,7 @@ Basic approach: tons of javascript speaking JSON to a server.  Server only speak
 **** buy/sell ships
 **** buy/sell equipment for a ship
 *** pending orders
-** status bar on bottom
+** status bar on top
 *** money
 *** time (turn #)
 * design choices
@@ -86,9 +85,16 @@ perform other actions.
 ** dynamic animated gifs
 ** cl-unification
 * work log / todo
+** UI for buying/selling
+use jquery UI slider bar
 ** find ways to represent orders in json
+{order:"orderName" options:{opts}}
 ** break up htmlfun into a separate file
 ** figure out jquery goodness to add orders to the pending orders tab
+add a global namespace for custom code, call functions on there to 
+add orders.
+ * add to appropriate list on orders tab
+ * update count in tab title
 ** update README, get basic orders
    CLOCK: [2009-03-23 Mon 19:40]--[2009-03-23 Mon 22:04] =>  1:24
    CLOCK: [2009-03-23 Mon 18:31]--[2009-03-23 Mon 18:39] =>  0:08
